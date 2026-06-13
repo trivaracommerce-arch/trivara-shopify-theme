@@ -422,9 +422,8 @@ label,
   border-radius: 2px !important;
 }
 
-/* Quick add / hover CTA */
-.quick-add,
-[class*="quick-add"],
+/* Quick add / hover CTA — target only the button, NOT the .quick-add overlay wrapper */
+.quick-add__button,
 .product-card__quick-add {
   font-family: var(--font-body--family) !important;
   font-size: 0.75rem !important;
