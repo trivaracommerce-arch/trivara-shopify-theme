@@ -389,7 +389,9 @@ label,
 .price,
 .price-item,
 .price-item--sale,
-[class*="price"] {
+.price--sale,
+.price__sale,
+.price__regular {
   font-family: var(--font-body--family) !important;
   font-weight: 600 !important;
 }
@@ -494,8 +496,8 @@ label,
   overflow: hidden;
 }
 
-[class*="marquee"] *,
-.marquee-section * {
+[class*="marquee"] :is(p, span, a, li, h1, h2, h3, h4, h5, div),
+.marquee-section :is(p, span, a, li, h1, h2, h3, h4, h5, div) {
   color: var(--tr-cream) !important;
   font-family: var(--font-heading--family) !important;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
@@ -814,45 +816,53 @@ label,
   background-color: var(--tr-green) !important;
 }
 
-.footer *,
-.footer a,
-.footer p,
-.footer li,
-.footer span {
+/* Target the actual <footer> tag (Shopify uses tag, not .footer class) */
+footer p, footer a, footer li,
+footer span:not(.svg-wrapper):not(.menu__heading__toggle),
+footer .footer-utilities__text,
+.footer-content p, .footer-content a, .footer-content li {
   font-family: var(--font-body--family) !important;
   color: rgba(255,247,231,0.72) !important;
 }
 
-.footer a:hover { color: var(--tr-cream) !important; text-decoration: underline; text-underline-offset: 3px; }
+footer a:hover { color: var(--tr-cream) !important; text-decoration: underline; text-underline-offset: 3px; }
 
-.footer h2, .footer h3, .footer h4,
-[class*="footer__heading"],
-.footer [class*="heading"] {
-  font-family: var(--font-heading--family) !important;
-  font-size: 1.125rem !important;
-  font-weight: 500 !important;
-  color: var(--tr-cream) !important;
+/* Footer menu column headings (INFORMATION / SHOP / CONNECT) */
+footer .menu__heading,
+footer summary.menu__heading,
+footer .menu__heading__default,
+footer .menu__heading__accordion {
+  font-family: var(--font-body--family) !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,247,231,0.5) !important;
   margin-bottom: 1rem !important;
-  letter-spacing: 0 !important;
-  text-transform: none !important;
+  display: block;
 }
 
 /* Footer newsletter input */
+footer input[type="email"],
 .footer input[type="email"] {
   background-color: rgba(255,247,231,0.08) !important;
   border-color: rgba(255,247,231,0.2) !important;
   color: var(--tr-cream) !important;
 }
 
+footer input[type="email"]::placeholder,
 .footer input[type="email"]::placeholder {
   color: rgba(255,247,231,0.4) !important;
 }
 
+footer input[type="email"]:focus,
 .footer input[type="email"]:focus {
   border-color: var(--tr-orange) !important;
   box-shadow: 0 0 0 3px rgba(191,80,0,0.15) !important;
 }
 
+footer .button,
+footer button[type="submit"],
 .footer .button,
 .footer button[type="submit"] {
   background-color: var(--tr-orange) !important;
@@ -862,7 +872,8 @@ label,
 
 /* Footer bottom bar */
 .footer__copyright,
-[class*="footer__copyright"] {
+[class*="footer__copyright"],
+footer [class*="footer-utilities__group-copyright"] {
   border-top: 1px solid rgba(255,247,231,0.1) !important;
   margin-top: 2rem !important;
   padding-top: 1.5rem !important;
@@ -943,20 +954,26 @@ hr {
 }
 
 /* ─── Blog Cards ────────────────────────────────────────────── */
-[class*="blog-post-card"],
-[class*="featured-blog"] [class*="card"] {
+/* Specific top-level card elements only — no wildcard to prevent border leaking into child elements */
+.blog-post-card,
+.featured-blog-posts-card,
+.resource-card {
   background-color: var(--tr-cream);
   border: 1px solid rgba(22,41,21,0.07);
   transition: box-shadow var(--transition-slow), transform var(--transition-slow);
 }
 
-[class*="blog-post-card"]:hover,
-[class*="featured-blog"] [class*="card"]:hover {
+.blog-post-card:hover,
+.featured-blog-posts-card:hover,
+.resource-card:hover {
   box-shadow: var(--shadow-card-hover);
   transform: translateY(-2px);
 }
 
-[class*="blog"] h3, [class*="blog"] h4 {
+.blog-post-card h3, .blog-post-card h4,
+.featured-blog-posts-card h3, .featured-blog-posts-card h4,
+.resource-card h3, .resource-card h4,
+.blog-posts-container h3, .blog-posts-container h4 {
   font-family: var(--font-heading--family) !important;
   color: var(--tr-green) !important;
 }
@@ -1001,12 +1018,16 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* ─── Accordion / FAQ ───────────────────────────────────────── */
-details,
-[class*="accordion"] {
+/* Scope to page content only — NOT footer menus or mobile nav (which also use <details>) */
+main details,
+.rte details,
+.shopify-block details:not(.menu__details) {
   border-bottom: 1px solid rgba(22,41,21,0.1);
 }
 
-details summary,
+main details summary,
+.rte details summary,
+.shopify-block details:not(.menu__details) summary,
 [class*="accordion__summary"],
 [class*="accordion__title"] {
   font-family: var(--font-body--family) !important;
@@ -1021,11 +1042,14 @@ details summary,
   align-items: center;
 }
 
-details[open] summary {
+main details[open] summary,
+.rte details[open] summary,
+.shopify-block details:not(.menu__details)[open] summary {
   color: var(--tr-orange) !important;
 }
 
-details p,
+main details p,
+.rte details p,
 [class*="accordion__content"] p {
   font-size: 0.9375rem;
   color: rgba(22,41,21,0.7);
