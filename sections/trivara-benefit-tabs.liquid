@@ -1,0 +1,67 @@
+{% comment %} Trivara Benefit Tabs — Product Page Section {% endcomment %}
+
+<div class="trivara-tabs page-width" style="padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;">
+  <nav class="trivara-tabs__nav" role="tablist" aria-label="Product Benefits">
+    <button class="trivara-tabs__tab is-active" role="tab" aria-selected="true">Immunity Support</button>
+    <button class="trivara-tabs__tab" role="tab" aria-selected="false">Heart &amp; Skin Health</button>
+    <button class="trivara-tabs__tab" role="tab" aria-selected="false">Digestive Wellness</button>
+    <button class="trivara-tabs__tab" role="tab" aria-selected="false">Nutrient Dense</button>
+  </nav>
+
+  <div class="trivara-tabs__panel is-active" role="tabpanel">
+    <div class="trivara-tabs__icon" aria-hidden="true">🛡️</div>
+    <div class="trivara-tabs__content">
+      <h4>Immunity Support</h4>
+      <p>Sea Buckthorn delivers up to 15× more Vitamin C than oranges — the highest concentration found in any fruit pulp. Just one teaspoon activates your body's natural defences before the first sniffle arrives.</p>
+    </div>
+  </div>
+
+  <div class="trivara-tabs__panel" role="tabpanel">
+    <div class="trivara-tabs__icon" aria-hidden="true">❤️</div>
+    <div class="trivara-tabs__content">
+      <h4>Heart &amp; Skin Health</h4>
+      <p>Rich in Omega-3, -6, -7, and -9 fatty acids — a combination found almost nowhere else in nature. These rare omegas support cardiovascular function and keep skin supple, hydrated, and visibly glowing.</p>
+    </div>
+  </div>
+
+  <div class="trivara-tabs__panel" role="tabpanel">
+    <div class="trivara-tabs__icon" aria-hidden="true">🌿</div>
+    <div class="trivara-tabs__content">
+      <h4>Digestive Wellness</h4>
+      <p>The pulp contains natural dietary fibre and plant-based antioxidants that support gut lining integrity and reduce bloating. A healthy gut is the foundation of every other benefit Trivara delivers.</p>
+    </div>
+  </div>
+
+  <div class="trivara-tabs__panel" role="tabpanel">
+    <div class="trivara-tabs__icon" aria-hidden="true">⚡</div>
+    <div class="trivara-tabs__content">
+      <h4>Nutrient Dense</h4>
+      <p>A single 300ml bottle contains over 190 bioactive compounds including carotenoids, flavonoids, tocopherols, and plant sterols. No fillers, no concentrates — just whole Himalayan sea buckthorn, cold-pressed and bottled.</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Benefit Tabs",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    { "name": "Benefit Tabs" }
+  ]
+}
+{% endschema %}

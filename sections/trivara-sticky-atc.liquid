@@ -1,0 +1,29 @@
+{% comment %} Trivara Sticky Add to Cart Bar — appears after scrolling past the main ATC button {% endcomment %}
+
+{% if product %}
+  <div class="trivara-sticky-atc" role="complementary" aria-label="Quick add to cart">
+    <div class="trivara-sticky-atc__product">
+      <span class="trivara-sticky-atc__name">{{ product.title }}</span>
+      <span class="trivara-sticky-atc__price">
+        {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+          <s style="opacity:0.5;">{{ product.selected_or_first_available_variant.compare_at_price | money }}</s>&nbsp;
+        {% endif %}
+        {{ product.selected_or_first_available_variant.price | money }}
+      </span>
+    </div>
+    <button class="trivara-sticky-atc__btn" aria-label="Add {{ product.title }} to cart">
+      Add to Cart
+    </button>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Sticky Add to Cart",
+  "limit": 1,
+  "settings": [],
+  "presets": [
+    { "name": "Sticky Add to Cart" }
+  ]
+}
+{% endschema %}

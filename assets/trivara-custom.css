@@ -1,0 +1,473 @@
+/* Trivara Superfoods — Custom Design System */
+
+/* ─── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ─── Font Overrides ────────────────────────────────────────── */
+:root {
+  --font-heading--family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body--family: 'DM Sans', 'Raleway', system-ui, sans-serif;
+  --font-subheading--family: 'DM Sans', 'Raleway', system-ui, sans-serif;
+  --font-accent--family: 'DM Sans', 'Raleway', system-ui, sans-serif;
+
+  /* Brand tokens */
+  --trivara-green: #162915;
+  --trivara-cream: #FFF7E7;
+  --trivara-orange: #BF5000;
+  --trivara-orange-dark: #993F00;
+  --trivara-cream-mid: #F5EBD0;
+  --trivara-cream-deep: #EADBB8;
+}
+
+/* ─── Typography ────────────────────────────────────────────── */
+
+/* H1: 72px → 44px fluid, uppercase, tight tracking */
+h1, .h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* H2: 52px → 36px fluid */
+h2, .h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* H3: 36px → 26px */
+h3, .h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Body */
+body,
+p,
+.rte p {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* ─── Page background ───────────────────────────────────────── */
+body {
+  background-color: var(--trivara-cream);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+
+/* Primary: Burnt Orange */
+.button,
+.btn,
+button[type="submit"],
+.shopify-payment-button__button,
+input[type="submit"] {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Add to cart button — always Burnt Orange */
+.product-form__submit,
+.btn--add-to-cart {
+  background-color: var(--trivara-orange) !important;
+  border-color: var(--trivara-orange) !important;
+  color: var(--trivara-cream) !important;
+}
+
+.product-form__submit:hover,
+.btn--add-to-cart:hover {
+  background-color: var(--trivara-orange-dark) !important;
+  border-color: var(--trivara-orange-dark) !important;
+}
+
+/* ─── Navigation / Header ───────────────────────────────────── */
+.header {
+  background-color: var(--trivara-cream);
+  border-bottom: 1px solid rgba(22, 41, 21, 0.1);
+}
+
+.header__heading-link,
+.header__menu-item,
+.header a {
+  color: var(--trivara-green);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ─── Announcement Bar ───────────────────────────────────────── */
+.announcement-bar {
+  background-color: var(--trivara-green) !important;
+  color: var(--trivara-cream) !important;
+}
+
+.announcement-bar__message,
+.announcement-bar a {
+  color: var(--trivara-cream) !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Product Cards ─────────────────────────────────────────── */
+.card-wrapper,
+.product-card {
+  background-color: var(--trivara-cream);
+}
+
+.card__heading,
+.card__heading a {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--trivara-green);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.price,
+.price__sale,
+.price__regular {
+  color: var(--trivara-orange);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+
+/* ─── Ingredient / Benefit Tabs ─────────────────────────────── */
+.trivara-tabs {
+  background-color: var(--trivara-cream);
+  padding: 4rem 0;
+}
+
+.trivara-tabs__nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid rgba(22, 41, 21, 0.15);
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.trivara-tabs__tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  padding: 0.875rem 1.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(22, 41, 21, 0.55);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.trivara-tabs__tab:hover {
+  color: var(--trivara-green);
+}
+
+.trivara-tabs__tab.is-active {
+  color: var(--trivara-orange);
+  border-bottom-color: var(--trivara-orange);
+}
+
+.trivara-tabs__panel {
+  display: none;
+  animation: tabFadeIn 0.3s ease;
+}
+
+.trivara-tabs__panel.is-active {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.trivara-tabs__icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background-color: var(--trivara-cream-mid);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.trivara-tabs__content h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--trivara-green);
+  margin: 0 0 0.625rem;
+}
+
+.trivara-tabs__content p {
+  color: rgba(22, 41, 21, 0.75);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0;
+}
+
+@media (max-width: 749px) {
+  .trivara-tabs__panel.is-active {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .trivara-tabs__tab {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* ─── Sticky Add to Cart Bar ────────────────────────────────── */
+.trivara-sticky-atc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background-color: var(--trivara-green);
+  color: var(--trivara-cream);
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+  border-top: 3px solid var(--trivara-orange);
+}
+
+.trivara-sticky-atc.is-visible {
+  transform: translateY(0);
+}
+
+.trivara-sticky-atc__product {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trivara-sticky-atc__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--trivara-cream);
+}
+
+.trivara-sticky-atc__price {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 247, 231, 0.75);
+}
+
+.trivara-sticky-atc__btn {
+  background-color: var(--trivara-orange);
+  color: var(--trivara-cream);
+  border: none;
+  padding: 0.75rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.trivara-sticky-atc__btn:hover {
+  background-color: var(--trivara-orange-dark);
+}
+
+/* ─── Before / After Image Slider ───────────────────────────── */
+.trivara-comparison {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  border-radius: 0;
+}
+
+.trivara-comparison__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trivara-comparison__overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  width: 50%;
+}
+
+.trivara-comparison__overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  min-width: 200%;
+}
+
+.trivara-comparison__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  background: var(--trivara-cream);
+  cursor: ew-resize;
+}
+
+.trivara-comparison__handle::before {
+  content: '◀ ▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--trivara-cream);
+  color: var(--trivara-green);
+  font-size: 0.625rem;
+  letter-spacing: -0.05em;
+  padding: 0.5rem 0.375rem;
+  border-radius: 50px;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.trivara-comparison__caption {
+  position: absolute;
+  bottom: 1.25rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(22, 41, 21, 0.75);
+  color: var(--trivara-cream);
+  padding: 0.375rem 0.75rem;
+  backdrop-filter: blur(4px);
+}
+
+.trivara-comparison__caption--left  { left: 1.25rem; }
+.trivara-comparison__caption--right { right: 1.25rem; }
+
+/* ─── Reviews Carousel ──────────────────────────────────────── */
+.trivara-reviews {
+  background-color: var(--trivara-cream-mid);
+  padding: 5rem 0;
+}
+
+.trivara-reviews__heading {
+  text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: var(--trivara-green);
+  margin-bottom: 0.5rem;
+}
+
+.trivara-reviews__subhead {
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(22, 41, 21, 0.6);
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+}
+
+.trivara-reviews__stars {
+  color: var(--trivara-orange);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.875rem;
+}
+
+.trivara-reviews__card {
+  background-color: var(--trivara-cream);
+  padding: 2rem;
+  border: 1px solid rgba(22, 41, 21, 0.1);
+}
+
+.trivara-reviews__quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--trivara-green);
+  margin-bottom: 1.25rem;
+}
+
+.trivara-reviews__author {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(22, 41, 21, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Footer ────────────────────────────────────────────────── */
+.footer {
+  background-color: var(--trivara-green) !important;
+  color: var(--trivara-cream) !important;
+}
+
+.footer a,
+.footer p,
+.footer li,
+.footer__content-top,
+.footer__content-bottom {
+  color: rgba(255, 247, 231, 0.8) !important;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.footer a:hover {
+  color: var(--trivara-cream) !important;
+}
+
+.footer__heading {
+  color: var(--trivara-cream) !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.125rem;
+}
+
+/* ─── Marquee / Trust Bar ───────────────────────────────────── */
+.marquee-section,
+[class*="marquee"] {
+  background-color: var(--trivara-green);
+  color: var(--trivara-cream);
+}
+
+/* ─── Section: "Why Trivara" Dark Band ──────────────────────── */
+.section--dark {
+  background-color: var(--trivara-green);
+}
+
+/* ─── Sticky ATC Trigger Script ─────────────────────────────── */
+

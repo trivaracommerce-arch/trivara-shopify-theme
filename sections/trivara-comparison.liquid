@@ -1,0 +1,85 @@
+{% comment %} Trivara Before/After Comparison Slider {% endcomment %}
+
+<div class="trivara-comparison" style="height: {{ section.settings.height }}px;" aria-label="Product comparison slider">
+  {% if section.settings.image_right != blank %}
+    <img
+      class="trivara-comparison__img"
+      src="{{ section.settings.image_right | image_url: width: 1400 }}"
+      alt="{{ section.settings.caption_right }}"
+      loading="lazy"
+      width="1400"
+      height="{{ section.settings.height }}"
+    >
+  {% else %}
+    {{ 'product-1' | placeholder_svg_tag: 'trivara-comparison__img' }}
+  {% endif %}
+
+  <div class="trivara-comparison__overlay">
+    {% if section.settings.image_left != blank %}
+      <img
+        src="{{ section.settings.image_left | image_url: width: 1400 }}"
+        alt="{{ section.settings.caption_left }}"
+        loading="lazy"
+        width="1400"
+        height="{{ section.settings.height }}"
+      >
+    {% else %}
+      {{ 'product-2' | placeholder_svg_tag }}
+    {% endif %}
+  </div>
+
+  <div class="trivara-comparison__handle" aria-hidden="true"></div>
+
+  <span class="trivara-comparison__caption trivara-comparison__caption--left">
+    {{ section.settings.caption_left }}
+  </span>
+  <span class="trivara-comparison__caption trivara-comparison__caption--right">
+    {{ section.settings.caption_right }}
+  </span>
+</div>
+
+{% schema %}
+{
+  "name": "Comparison Slider",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_left",
+      "label": "Left image (studio / clean)"
+    },
+    {
+      "type": "text",
+      "id": "caption_left",
+      "label": "Left caption",
+      "default": "The Bottle"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_right",
+      "label": "Right image (raw berries / lifestyle)"
+    },
+    {
+      "type": "text",
+      "id": "caption_right",
+      "label": "Right caption",
+      "default": "The Source"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 300, "max": 800, "step": 20, "unit": "px",
+      "label": "Slider height",
+      "default": 560
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Slider",
+      "settings": {
+        "caption_left": "Pure. Cold-pressed.",
+        "caption_right": "Straight from the Himalayas."
+      }
+    }
+  ]
+}
+{% endschema %}

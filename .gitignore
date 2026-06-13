@@ -1,0 +1,8 @@
+# Shopify CLI
+.shopifyignore
+node_modules/
+.DS_Store
+*.log
+
+# Claude Code
+.claude/
