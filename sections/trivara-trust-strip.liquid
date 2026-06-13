@@ -1,0 +1,62 @@
+{% comment %} Trivara Social Proof / Trust Strip {% endcomment %}
+
+<div class="trivara-trust-strip">
+  <div class="trivara-trust-strip__inner">
+    <div class="trivara-trust-item">
+      <span class="trivara-trust-item__icon">★</span>
+      <span><strong>4.8/5</strong> from 2,000+ families</span>
+    </div>
+    <div class="trivara-trust-sep"></div>
+    <div class="trivara-trust-item">
+      <span class="trivara-trust-item__icon">🌿</span>
+      <span><strong>100% Pure</strong> · Zero additives</span>
+    </div>
+    <div class="trivara-trust-sep"></div>
+    <div class="trivara-trust-item">
+      <span class="trivara-trust-item__icon">🏔️</span>
+      <span>Wild-harvested from <strong>3,200m altitude</strong></span>
+    </div>
+    <div class="trivara-trust-sep"></div>
+    <div class="trivara-trust-item">
+      <span class="trivara-trust-item__icon">📦</span>
+      <span>Free shipping on orders <strong>₹999+</strong></span>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trust Strip",
+  "limit": 1,
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "stat_1",
+      "label": "Stat 1",
+      "default": "4.8/5 from 2,000+ families"
+    },
+    {
+      "type": "text",
+      "id": "stat_2",
+      "label": "Stat 2",
+      "default": "100% Pure · Zero additives"
+    },
+    {
+      "type": "text",
+      "id": "stat_3",
+      "label": "Stat 3",
+      "default": "Wild-harvested at 3,200m"
+    },
+    {
+      "type": "text",
+      "id": "stat_4",
+      "label": "Stat 4",
+      "default": "Free shipping on ₹999+"
+    }
+  ],
+  "presets": [
+    { "name": "Trust Strip" }
+  ]
+}
+{% endschema %}
