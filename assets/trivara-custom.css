@@ -151,15 +151,27 @@ nav a,
   position: relative;
 }
 
-/* When transparent: switch text + icons to cream so they're readable over video */
+/* When transparent: white text + shadow for readability on any video background */
 #header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .header__menu-item > a,
 #header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .header__menu-item > button,
 #header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .header-actions__action,
 #header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .header__heading,
-#header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .header__heading-link,
+#header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .header__heading-link {
+  color: #fff !important;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+}
+
 #header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .header-actions__action svg,
 #header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .cart-icon svg {
-  color: var(--tr-cream) !important;
+  color: #fff !important;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+}
+
+/* Clear any color-scheme backgrounds (e.g. account button's color-scheme class)
+   that would show as a box in the transparent header */
+#header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) [class*="color-scheme-"],
+#header-component[data-transparent-color-scheme]:not([data-sticky-state='active']) .account-button__fallback {
+  background-color: transparent !important;
 }
 
 /* Underline hover effect on nav links */
