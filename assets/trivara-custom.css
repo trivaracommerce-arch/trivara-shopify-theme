@@ -121,12 +121,9 @@ a {
 header,
 .header,
 .header-section,
+.header__row,
 [class*="header__columns"] {
   background-color: var(--tr-cream) !important;
-}
-
-.header__columns {
-  border-bottom: 1px solid rgba(22,41,21,0.08);
 }
 
 /* Nav links */
@@ -828,10 +825,10 @@ footer .footer-utilities__text,
 footer a:hover { color: var(--tr-cream) !important; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Footer menu column headings (INFORMATION / SHOP / CONNECT) */
+/* Do NOT include .menu__heading__accordion — theme CSS hides it on desktop; we must not override display */
 footer .menu__heading,
 footer summary.menu__heading,
-footer .menu__heading__default,
-footer .menu__heading__accordion {
+footer .menu__heading__default {
   font-family: var(--font-body--family) !important;
   font-size: 0.6875rem !important;
   font-weight: 700 !important;
@@ -839,7 +836,6 @@ footer .menu__heading__accordion {
   text-transform: uppercase !important;
   color: rgba(255,247,231,0.5) !important;
   margin-bottom: 1rem !important;
-  display: block;
 }
 
 /* Footer newsletter input */
