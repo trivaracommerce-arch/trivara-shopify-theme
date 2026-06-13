@@ -179,6 +179,18 @@ nav a,
   color: var(--tr-green);
 }
 
+/* Account button fallback circle — shown while shopify-account JS loads.
+   Override the 50% border-radius so it doesn't bleed outside the header card. */
+.account-button__fallback {
+  border-radius: 2px !important;
+  background-color: var(--tr-orange) !important;
+}
+
+/* Pull the right-column icons inward so they don't overflow the header edge */
+.header__column--right {
+  padding-right: clamp(0.5rem, 1.5vw, 1.25rem) !important;
+}
+
 /* ─── Buttons — Full System ─────────────────────────────────── */
 
 /* Base button */
