@@ -1176,6 +1176,89 @@ main details p,
 
 .trivara-sticky-atc__btn:hover { background-color: var(--tr-orange-dark); }
 
+/* ─── Visual Blending — Section Backgrounds ─────────────────── */
+
+/* Scheme-4 warm tan (#F5EBD0) — used for "Our Superfoods" product grid */
+.color-scheme-4,
+[class*="color-scheme-4"] {
+  background-color: #F5EBD0 !important;
+}
+
+.color-scheme-4 h1,
+.color-scheme-4 h2,
+.color-scheme-4 h3,
+.color-scheme-4 h4,
+[class*="color-scheme-4"] h1,
+[class*="color-scheme-4"] h2,
+[class*="color-scheme-4"] h3,
+[class*="color-scheme-4"] h4 {
+  color: var(--tr-green) !important;
+}
+
+.color-scheme-4 p,
+.color-scheme-4 li,
+[class*="color-scheme-4"] p,
+[class*="color-scheme-4"] li {
+  color: rgba(22,41,21,0.78) !important;
+}
+
+/* Product cards inside scheme-4: white cards pop on warm tan */
+.color-scheme-4 .product-card,
+[class*="color-scheme-4"] .product-card {
+  background-color: #fff !important;
+  box-shadow: 0 1px 8px rgba(22,41,21,0.07) !important;
+}
+
+.color-scheme-4 .product-card:hover,
+[class*="color-scheme-4"] .product-card:hover {
+  box-shadow: 0 8px 32px rgba(22,41,21,0.14) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Scheme-2 (#FFF7E7 cream) — blog section */
+.color-scheme-2,
+[class*="color-scheme-2"] {
+  background-color: var(--tr-cream) !important;
+}
+
+/* ─── Section Headings — Editorial Scale ─────────────────────── */
+main .section h2:not([class*="product-title"]):not([class*="card__heading"]):not([class*="blog-post"]) {
+  font-family: var(--font-heading--family) !important;
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  color: var(--tr-green) !important;
+  text-transform: none !important;
+}
+
+/* Eyebrow / subheadings in sections */
+main .section [class*="subheading"],
+main .section [class*="eyebrow"],
+main .section [class*="subtitle"] {
+  font-family: var(--font-body--family) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--tr-orange) !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* ─── Blog Card Lift ─────────────────────────────────────────── */
+.color-scheme-1 .blog-post-card,
+.color-scheme-1 .featured-blog-posts-card {
+  background-color: #fff !important;
+  box-shadow: 0 2px 16px rgba(22,41,21,0.06) !important;
+  border: none !important;
+}
+
+.color-scheme-1 .blog-post-card:hover,
+.color-scheme-1 .featured-blog-posts-card:hover {
+  box-shadow: 0 8px 36px rgba(22,41,21,0.13) !important;
+  transform: translateY(-3px) !important;
+}
+
 /* ─── Mobile Refinements ────────────────────────────────────── */
 @media (max-width: 749px) {
   :root {
