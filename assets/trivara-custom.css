@@ -322,10 +322,10 @@ a.button:hover {
 }
 
 /* ─── Forms & Inputs ────────────────────────────────────────── */
+/* Exclude quantity-selector inputs — they use transparent bg inside their own bordered container */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="number"],
 input[type="password"],
 input[type="search"],
 textarea,
@@ -341,6 +341,41 @@ select,
   padding: 0.75rem 1rem !important;
   transition: border-color var(--transition-base), box-shadow var(--transition-base) !important;
   outline: none;
+}
+
+/* Quantity stepper — restore transparent inner input, let container handle the border */
+.quantity-selector {
+  background-color: var(--tr-cream) !important;
+  border: 1.5px solid rgba(22,41,21,0.2) !important;
+  border-radius: 2px !important;
+  color: var(--tr-green) !important;
+}
+
+.quantity-selector input[type="number"] {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  color: var(--tr-green) !important;
+  font-family: var(--font-body--family) !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+}
+
+.quantity-selector .quantity-minus,
+.quantity-selector .quantity-plus {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--tr-green) !important;
+  transform: none !important;
+}
+
+.quantity-selector .quantity-minus svg,
+.quantity-selector .quantity-plus svg {
+  color: var(--tr-green) !important;
 }
 
 input:focus,
